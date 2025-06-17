@@ -3,8 +3,8 @@ from tools.pdf_converter import pdf_to_images
 import zipfile
 import io
 
-st.set_page_config(page_title="Multi PDF to Images Converter", layout="centered")
-st.title("📄🔄🖼️ Multi PDF to Images Converter")
+st.set_page_config(page_title="PDF to Image Converter", layout="centered")
+st.title("📄🔄🖼️ PDF to Image Converter")
 
 uploaded_files = st.file_uploader("Upload PDF files", type=["pdf"], accept_multiple_files=True)
 
