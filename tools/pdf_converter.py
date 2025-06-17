@@ -1,6 +1,14 @@
-from pdf2image import convert_from_bytes
+import fitz  # PyMuPDF
+from PIL import Image
+import io
 
 def pdf_to_images(pdf_bytes):
-    # Convert PDF bytes to list of PIL images
-    images = convert_from_bytes(pdf_bytes)
+    doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+    images = []
+
+    for page in doc:
+        pix = page.get_pixmap()
+        img = Image.open(io.BytesIO(pix.tobytes("png")))
+        images.append(img)
+
     return images
